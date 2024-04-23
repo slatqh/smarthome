@@ -12,8 +12,9 @@ export const HomeScreen = () => {
         <Text style={styles.title}>LATESTAPPTESTING</Text>
       </View>
       <Temperture city="New York" temp="22" rainChances="94" />
-      <View style={{marginTop: 20}}>
-        <FavoriteBase label="scenes" onPress={() => console.log('pressed')} />
+      <FavoriteBase label="scenes" onPress={() => console.log('pressed')} />
+      <View style={styles.switchWrapper}>
+        <FavoriteBase label="devices" onPress={() => console.log('pressed')} />
         <Switch />
       </View>
     </View>
@@ -42,5 +43,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
+  },
+  switchWrapper: {
+    marginTop: 20,
   },
 });
