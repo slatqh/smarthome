@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {Colors} from '../constans/Colors';
-import {Switch, Temperture} from '../components';
+import {Temperture} from '../components';
 import FavoriteBase from '../components/FavoriteBase';
+import SwitchList from '../components/SwitchList';
 
 export const HomeScreen = () => {
   return (
@@ -15,7 +16,7 @@ export const HomeScreen = () => {
       <FavoriteBase label="scenes" onPress={() => console.log('pressed')} />
       <View style={styles.switchWrapper}>
         <FavoriteBase label="devices" onPress={() => console.log('pressed')} />
-        <Switch />
+        <SwitchList />
       </View>
     </View>
   );
@@ -46,5 +47,6 @@ const styles = StyleSheet.create({
   },
   switchWrapper: {
     marginTop: 20,
+    flex: 1,
   },
 });

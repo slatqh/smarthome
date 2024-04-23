@@ -2,23 +2,28 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Colors} from '../constans/Colors';
 
-interface ISwitch {
-  onPress: (id: number) => void;
+export interface ISwitch {
+  onPress?: (id: string) => void;
   isOn: boolean;
-  switch: string;
+  switchNumber: string;
+  id: string;
+  room: string;
 }
 
-const Switch = (props: ISwitch) => {
+export const Switch = (props: ISwitch) => {
+  const {onPress, isOn, room, switchNumber, id} = props;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => onPress && onPress(id)}>
       <>
         <View style={styles.isOn}>
           <View style={styles.indicator} />
-          <Text style={styles.text}>Off</Text>
+          <Text style={styles.text}>{isOn ? 'On' : 'Off'}</Text>
         </View>
         <View style={styles.room}>
-          <Text style={styles.text}>Switch 1.2</Text>
-          <Text style={styles.text}>Living Room</Text>
+          <Text style={styles.text}>Switch {switchNumber}</Text>
+          <Text style={styles.text}>{room}</Text>
         </View>
       </>
     </TouchableOpacity>
@@ -52,4 +57,3 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 });
-export default Switch;
