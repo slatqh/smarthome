@@ -18,7 +18,12 @@ export const Switch = (props: ISwitch) => {
       onPress={() => onPress && onPress(id)}>
       <>
         <View style={styles.isOn}>
-          <View style={styles.indicator} />
+          <View
+            style={[
+              styles.indicator,
+              {backgroundColor: isOn ? 'green' : 'gray'},
+            ]}
+          />
           <Text style={styles.text}>{isOn ? 'On' : 'Off'}</Text>
         </View>
         <View style={styles.room}>
@@ -47,7 +52,6 @@ const styles = StyleSheet.create({
   indicator: {
     width: 30,
     height: 15,
-    backgroundColor: 'gray',
   },
   text: {
     color: Colors.text,

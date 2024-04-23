@@ -5,11 +5,20 @@ import switchesData from '../mock/switchesData';
 
 type ISwitchData = Omit<ISwitch, 'onPress'>;
 const SwitchList = () => {
-  const [swithes, setSwitches] = React.useState<
-    ISwitchData[] | null | undefined
-  >(switchesData);
+  const [swithes, setSwitches] = React.useState<ISwitchData[] | []>(
+    switchesData,
+  );
 
-  const handlePress = (id: string) => console.log('switch pressed', id);
+  const handlePress = (id: string) => {
+    const updateSwitchUI = swithes?.map(item => {
+      if (item.id === id) {
+        item.isOn = !item.isOn;
+      }
+      return item;
+    });
+    setSwitches(updateSwitchUI);
+    // handleSwitchApi(id) api call to perform some action ;
+  };
   const renderItem = ({item}: {item: ISwitch}) => {
     return (
       <View style={styles.switchWrapper} key={item.id}>
