@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Colors} from '../constans/Colors';
 
 export interface ISwitch {
@@ -9,6 +15,9 @@ export interface ISwitch {
   id: string;
   room: string;
 }
+const {height, width} = Dimensions.get('window');
+const customMargin = 4;
+const customWidth = width / 3.5;
 
 export const Switch = (props: ISwitch) => {
   const {onPress, isOn, room, switchNumber, id} = props;
@@ -37,8 +46,8 @@ export const Switch = (props: ISwitch) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 100,
-    height: 100,
+    width: customWidth,
+    height: customWidth,
     borderRadius: 10,
     borderColor: 'white',
     borderWidth: 1,
